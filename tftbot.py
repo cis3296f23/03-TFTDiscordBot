@@ -1,18 +1,19 @@
-//hi
-import os
-import random
 import discord
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix='/')
+# Create an instance of Intents
+intents = discord.Intents.default()
+intents.message_content = True  
+
+# Pass the intents parameter to the Bot constructor
+bot = commands.Bot(command_prefix='/', intents=intents)
 
 @bot.event
 async def on_ready():
-    print('Logged in as', bot.user.name)
+    print(f'Logged in as {bot.user.name}')
 
 @bot.command(name='hi', help='Bot says hi')
 async def say_hi(ctx):
     await ctx.send('Hi')
 
-bot.run('ODM0OTY2NDU0NDczNzE5ODM4.GuxXin.gEaNLog5Nl-519jTdV_7tLUxr-qsBNSjeOZJlM')
-
+bot.run('ODM0OTY2NDU0NDczNzE5ODM4.GA7muP.sP66ggaRg2B1aUFBIdGG1LsOFirES3eAvSyqyU')
