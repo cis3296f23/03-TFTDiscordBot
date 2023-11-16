@@ -15,4 +15,3 @@ async def say_hi(ctx):
     await ctx.send('Hi')
 
 bot.run('ODM0OTY2NDU0NDczNzE5ODM4.GuxXin.gEaNLog5Nl-519jTdV_7tLUxr-qsBNSjeOZJlM')
-
