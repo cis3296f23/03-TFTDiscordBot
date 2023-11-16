@@ -1,17 +1,28 @@
-
-import os
-import random
 import discord
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix='/')
+
+
+
+# Prompt the user to enter the token
+import discord
+from discord.ext import commands
+
+# Prompt the user to enter the token
+TOKEN = input("Enter your Discord bot token: ")
+
+# Create an instance of Intents
+intents = discord.Intents.default()
+intents.message_content = True
+
+# Pass the intents parameter to the Bot constructor
+bot = commands.Bot(command_prefix='/', intents=intents)
 
 @bot.event
 async def on_ready():
-    print('Logged in as', bot.user.name)
+    print(f'Logged in as {bot.user.name}')
 
 @bot.command(name='hi', help='Bot says hi')
 async def say_hi(ctx):
     await ctx.send('Hi')
-
-bot.run('ODM0OTY2NDU0NDczNzE5ODM4.GuxXin.gEaNLog5Nl-519jTdV_7tLUxr-qsBNSjeOZJlM')
+    bot.run(TOKEN)
