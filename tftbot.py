@@ -65,7 +65,7 @@ async def get_summoner(ctx, name):
 
 
         #  rank information
-        get_rank = f"{rank_url}/{summoner_info['id']}?api_key={API_KEY}"
+        get_rank = f"{rank_url}/{summoner_url['id']}?api_key={API_KEY}"
         rank_resp = requests.get(rank_url)
         rank_resp.raise_for_status()
         
