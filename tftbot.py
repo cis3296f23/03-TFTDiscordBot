@@ -44,7 +44,7 @@ async def say_hi(ctx):
     
 @bot.command(name='summoner', help='Get summoner information')
 async def get_summoner(ctx, name):
-    api_url = f"{api_summoner_url}/{name}?api_key={API_KEY}"
+    api_url = f"{summoner_url}/{name}?api_key={API_KEY}"
 
     try:
         resp = requests.get(api_url)
