@@ -21,6 +21,7 @@ API_KEY = "RGAPI-93f45e9a-2a32-4b4d-8b2e-411239b2875d"
 #summoner url for information
 
 summoner_url = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name"
+rank_url = "https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner"
 
 
 
@@ -44,21 +45,46 @@ async def say_hi(ctx):
     
 @bot.command(name='summoner', help='Get summoner information')
 async def get_summoner(ctx, name):
-    api_url = f"{summoner_url}/{name}?api_key={API_KEY}"
 
     try:
+        
+        # summoner information 
+
+
+        api_url = f"{summoner_url}/{name}?api_key={API_KEY}"
         resp = requests.get(api_url)
         resp.raise_for_status()  # Check for errors in the response
 
+
+         # fetch data 
+         
         player_info = resp.json()
         summoner_level = player_info["summonerLevel"]
         puuid = player_info['puuid']
 
-        await ctx.send(f"Summoner level: {summoner_level}\nSummoner puuid: {puuid}")
 
+
+        #  rank information
+        get_rank = f"{api_tft_rank_url}/{summoner_info['id']}?api_key={API_KEY}"
+        rank_resp = requests.get(rank_url)
+        rank_resp.raise_for_status()
+        
+        
+        #fetch tft data 
+        
+        rank_info = rank_resp.json()
+        if rank_info:
+            tft_rank = f"TFT Rank: {rank_info[0]['tier']} {rank_info[0]['rank']}"
+        else:
+            tft_rank = "TFT Rank: Unranked"
+
+        await ctx.send(f"Summoner level: {summoner_level}\nSummoner PUUID: {puuid}\n{tft_rank}")
+        
     except requests.exceptions.HTTPError as err:
         await ctx.send(f"Error fetching summoner information: {err}")
-        
+
+
+
         
         
 
