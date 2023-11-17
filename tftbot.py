@@ -22,6 +22,7 @@ API_KEY = "RGAPI-93f45e9a-2a32-4b4d-8b2e-411239b2875d"
 
 summoner_url = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name"
 rank_url = "https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner"
+icon_url = "http://ddragon.leagueoflegends.com/cdn/11.18.1/img/profileicon/"
 
 
 
@@ -45,6 +46,10 @@ async def say_hi(ctx):
 @bot.command(name='summoner', help='Get summoner information')
 async def get_summoner(ctx, name):
     try:
+        
+   
+
+
         # Summoner information
         api_url = f"{summoner_url}/{name}?api_key={API_KEY}"
         resp = requests.get(api_url)
@@ -54,6 +59,12 @@ async def get_summoner(ctx, name):
         player_info = resp.json()
         summoner_level = player_info["summonerLevel"]
         puuid = player_info['puuid']
+        profile_icon = player_info['profileIconId']
+
+       #Get Icon 
+        
+        icon = f"{icon_url}{profile_icon}.png"
+
 
         # Rank information using summoner ID
         get_rank = f"{rank_url}/{player_info['id']}?api_key={API_KEY}"
@@ -67,7 +78,7 @@ async def get_summoner(ctx, name):
         else:
             tft_rank = "TFT Rank: Unranked"
 
-        await ctx.send(f"Summoner level: {summoner_level}\nSummoner PUUID: {puuid}\n{tft_rank}")
+        await ctx.send(f"Summoner level: {summoner_level}\nSummoner PUUID: {puuid}\n{tft_rank}\nProfile Icon: {icon}")
 
     except requests.exceptions.HTTPError as err:
         await ctx.send(f"Error fetching summoner information: {err}")
