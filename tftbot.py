@@ -41,37 +41,30 @@ async def say_hi(ctx):
     await ctx.send('Hi')
     
     
-    
-    
+ 
 @bot.command(name='summoner', help='Get summoner information')
 async def get_summoner(ctx, name):
+    
+    
+    api_url = f"{summoner_url}/{name}?api_key={API_KEY}"
+    get_rank = f"{rank_url}/{player_info['id']}?api_key={API_KEY}"
+
 
     try:
-        
-        # summoner information 
-
-
-        api_url = f"{summoner_url}/{name}?api_key={API_KEY}"
+        # Summoner information
         resp = requests.get(api_url)
         resp.raise_for_status()  # Check for errors in the response
 
-
-         # fetch data 
-         
+        # Fetch data
         player_info = resp.json()
         summoner_level = player_info["summonerLevel"]
         puuid = player_info['puuid']
 
-
-
-        #  rank information
-        get_rank = f"{rank_url}/{player_info['id']}?api_key={API_KEY}"
-        rank_resp = requests.get(rank_url)
+        # Rank information from summoner ID
+        rank_resp = requests.get(get_rank)
         rank_resp.raise_for_status()
-        
-        
-        #fetch tft data 
-        
+
+        # Fetch TFT data
         rank_info = rank_resp.json()
         if rank_info:
             tft_rank = f"TFT Rank: {rank_info[0]['tier']} {rank_info[0]['rank']}"
@@ -80,12 +73,10 @@ async def get_summoner(ctx, name):
 
         await ctx.send(f"Summoner level: {summoner_level}\nSummoner PUUID: {puuid}\n{tft_rank}")
         
+        # If Summoner ID doesnt exist print Error
+
     except requests.exceptions.HTTPError as err:
         await ctx.send(f"Error fetching summoner information: {err}")
-
-
-
-        
         
 
 
