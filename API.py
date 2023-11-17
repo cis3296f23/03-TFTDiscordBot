@@ -8,6 +8,6 @@ resp = requests.get(api_url)
 player_info = resp.json()
 summonerName = player_info['name']
 summonnerLeverl = player_info["summonerLevel"]
-puuid = player_info['puuid']
+puuid = player_info['puuid']hhhs
 print("Summoner level: ", summonnerLeverl)
 print("Summoner puuid:", puuid)
