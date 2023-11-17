@@ -46,11 +46,14 @@ async def say_hi(ctx):
 async def get_summoner(ctx, name):
     
     
-    api_url = f"{summoner_url}/{name}?api_key={API_KEY}"
-    get_rank = f"{rank_url}/{player_info['id']}?api_key={API_KEY}"
+
 
 
     try:
+        # get information base on the given url
+        api_url = f"{summoner_url}/{name}?api_key={API_KEY}"
+        get_rank = f"{rank_url}/{player_info['id']}?api_key={API_KEY}"
+    
         # Summoner information
         resp = requests.get(api_url)
         resp.raise_for_status()  # Check for errors in the response
