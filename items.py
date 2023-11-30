@@ -2,8 +2,8 @@ import discord
 from discord.ext import commands
 
 
-async def display_component(ctx, component_name: str):
-        component_images = {
+
+component_images = {
             'tears': 'tears.png',
             'spatula': 'spatula.png',
             'gloves': 'gloves.png',
@@ -13,6 +13,9 @@ async def display_component(ctx, component_name: str):
             'bow': 'bow.png',
             'sword': 'sword.png',
         }
+        
+        
+async def display_component(ctx, component_name: str):
 
         try:
             # Get the image path based on the component name

@@ -55,7 +55,7 @@ async def summoner_command(ctx, name):
 
 
 @bot.command(name='component', help='Get information on a specific component')
-async def display_component(ctx, component_name: str):
+async def component_commands(ctx, component_name: str):
     await display_component(ctx, component_name)
  
 
