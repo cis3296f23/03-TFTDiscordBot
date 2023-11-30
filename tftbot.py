@@ -39,12 +39,13 @@ async def summoner_command(ctx, name):
 
 @bot.command(name='items', help = 'get information on the basic item components')
 async def display_image(ctx):
-    image_url = 'items.png'
 
-    # Create and send an embed with the image
-    embed = discord.Embed()
-    embed.set_image(url=image_url)
-    await ctx.send(embed=embed)
+    image_path = 'items.png'
+
+    try:
+        # Open the file and send it as an attachment
+        with open(image_path, 'rb') as image_file:
+            await ctx.send(file=discord.File(image_file, 'items.png'))
 
 
 
