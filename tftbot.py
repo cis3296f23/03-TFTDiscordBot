@@ -36,4 +36,20 @@ async def summoner_command(ctx, name):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 bot.run(BOT_TOKEN)
