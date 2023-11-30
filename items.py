@@ -19,7 +19,7 @@ async def display_component(ctx, component_name: str):
 
         try:
             # Get the image path based on the component name
-            image_path = component_images.get(component_name.lower())
+            image_path = f'imageholder/{component_name.lower()}.png'
             if image_path:
                 with open(image_path, 'rb') as image_file:
                     file = discord.File(image_file, f'{component_name}.png')
