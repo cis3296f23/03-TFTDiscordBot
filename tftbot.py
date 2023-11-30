@@ -35,9 +35,16 @@ async def summoner_command(ctx, name):
     await get_summoner_info(ctx, name, summoner_url, rank_url, icon_url, RIOT_GAMES_API_KEY)
 
 
+#display items
 
+@bot.command(name='items', help = 'get information on the basic item components')
+async def display_image(ctx):
+    image_url = 'items.png'
 
-
+    # Create and send an embed with the image
+    embed = discord.Embed()
+    embed.set_image(url=image_url)
+    await ctx.send(embed=embed)
 
 
 
