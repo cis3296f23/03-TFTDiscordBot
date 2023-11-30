@@ -1,5 +1,6 @@
 # summoner_command.py
 
+
 import requests
 
 async def get_summoner_info(ctx, name, summoner_url, rank_url, icon_url, API_KEY):
@@ -12,7 +13,6 @@ async def get_summoner_info(ctx, name, summoner_url, rank_url, icon_url, API_KEY
         # Fetch data
         player_info = resp.json()
         summoner_level = player_info["summonerLevel"]
-        puuid = player_info['puuid']
         profile_icon = player_info['profileIconId']
 
         # Get Icon 
@@ -30,7 +30,8 @@ async def get_summoner_info(ctx, name, summoner_url, rank_url, icon_url, API_KEY
         else:
             tft_rank = "TFT Rank: Unranked"
 
-        await ctx.send(f"Summoner level: {summoner_level}\nSummoner PUUID: {puuid}\n{tft_rank}\nProfile Icon: {icon}")
+        await ctx.send(f"Summoner level: {summoner_level}\n{tft_rank}\nProfile Icon: {icon}")
 
     except requests.exceptions.HTTPError as err:
         await ctx.send(f"Error fetching summoner information: {err}")
+
