@@ -5,6 +5,7 @@ import riotwatcher
 from config import *
 from discord.ext import commands
 from summoner_info import get_summoner_info
+from getitem import display_image
 from riotwatcher import TftWatcher
 from items import display_component
 
@@ -33,7 +34,7 @@ async def say_hi(ctx):
   
 @bot.command(name='items', help='Get information on the basic components')
 async def item_command(ctx):
-    await display_component(ctx)
+    await display_image(ctx)
 
  
 @bot.command(name='summoner', help='Get summoner information')
