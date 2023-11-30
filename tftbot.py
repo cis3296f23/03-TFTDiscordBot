@@ -1,23 +1,16 @@
 import discord
 import requests
+import json
 
 from discord.ext import commands
 from summoner_info import get_summoner_info
 
+#get bot token and api key from config.json
+configJSON = json.load(open('config.json'))
 
-
-
-
-
-# Prompt the user to enter the token
-import discord
-from discord.ext import commands
-
-# Prompt the user to enter the token
-TOKEN = input("Enter your Discord bot token: ")
-
-#api key
-API_KEY = "RGAPI-93f45e9a-2a32-4b4d-8b2e-411239b2875d" 
+# set bot token and Riot Games API Key
+TOKEN = configJSON["BotToken"]
+API_KEY = configJSON["APIKey"]
 
 
 #summoner url for information
