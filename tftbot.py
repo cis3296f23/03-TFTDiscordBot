@@ -29,23 +29,28 @@ async def say_hi(ctx):
     await ctx.send('Hi')
     
     
+
+@bot.command(name='items', help='Get information on the basic components')
+async def display_image(ctx):
+    image_path = 'items.png'
+
+    try:
+   
+        with open(image_path, 'rb') as image_file:
+            file = discord.File(image_file, 'items.png')
+            await ctx.send(file=file)
+    except FileNotFoundError:
+        await ctx.send(" the image file was not found.")
+    except Exception as e:
+        await ctx.send(f"An error occurred: {e}")
+
+ 
  
 @bot.command(name='summoner', help='Get summoner information')
 async def summoner_command(ctx, name):
     await get_summoner_info(ctx, name, summoner_url, rank_url, icon_url, RIOT_GAMES_API_KEY)
 
 
-#display items
-
-@bot.command(name='items', help = 'get information on the basic item components')
-async def display_image(ctx):
-
-    image_path = 'items.png'
-
-    try:
-        # Open the file and send it as an attachment
-        with open(image_path, 'rb') as image_file:
-            await ctx.send(file=discord.File(image_file, 'items.png'))
 
 
 
