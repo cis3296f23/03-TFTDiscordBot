@@ -1,24 +1,16 @@
 import discord
 import requests
-import json
+import riotwatcher
 
+from config import *
 from discord.ext import commands
 from summoner_info import get_summoner_info
-
-#get bot token and api key from config.json
-configJSON = json.load(open('config.json'))
-
-# set bot token and Riot Games API Key
-TOKEN = configJSON["BotToken"]
-API_KEY = configJSON["APIKey"]
-
+from riotwatcher import TftWatcher
 
 #summoner url for information
-
 summoner_url = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name"
 rank_url = "https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner"
 icon_url = "http://ddragon.leagueoflegends.com/cdn/11.18.1/img/profileicon/"
-
 
 
 # Create an instance of Intents
@@ -40,8 +32,8 @@ async def say_hi(ctx):
  
 @bot.command(name='summoner', help='Get summoner information')
 async def summoner_command(ctx, name):
-    await get_summoner_info(ctx, name, summoner_url, rank_url, icon_url, API_KEY)
+    await get_summoner_info(ctx, name, summoner_url, rank_url, icon_url, RIOT_GAMES_API_KEY)
 
 
 
-bot.run(TOKEN)
+bot.run(BOT_TOKEN)
