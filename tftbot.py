@@ -34,9 +34,8 @@ async def say_hi(ctx):
 @bot.command(name='items', help='Get information on the basic components')
 async def display_image(ctx):
     
-    folder_path = 'imageholder'
 
-    image_path =  Path(folder_path) /'items.png'
+    image_path =  'items.png'
 
     try:
    
