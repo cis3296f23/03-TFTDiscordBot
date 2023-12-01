@@ -59,7 +59,7 @@ async def drop_command(ctx):
 
 @bot.command(name='leaderboard' , help= 'Get the top ranking players information')
 async def tft_leaderboard(ctx):
-    await get_tft_leaderboard(ctx, LEADERBOARD_API_URL, API_KEY)
+    await get_tft_leaderboard(ctx, leaderboard_url, API_KEY)
 
 
 
