@@ -35,21 +35,65 @@ async def get_tft_leaderboard(ctx, leaderboard_url, API_KEY, region):
         # Region managing 
         
         # Europe
-        await message.add_reaction("😁") 
+        await message.add_reaction("😁")   
         # Brazil 
         await message.add_reaction("😄") 
+        #North America
+        await message.add_reaction("🚀")   
+        #Latin America North (LAN)
+        await message.add_reaction("💻")   
+        #Oceania (OCE)
+        await message.add_reaction("📚")   
+        #Korea (KR) 
+        await message.add_reaction("🎉")   
+        #Japan (JP)
+        await message.add_reaction("🌟")   
+        
+
+        
+        
+        
 
         def check(reaction, user):
-            return user == ctx.author and str(reaction.emoji) in ["😁", "😄"] and reaction.message.id == message.id
+            
+            valid_emojis = {"😁", "🚀", "😄", "💻", "📚", "🎉", "🌟"}
+            return (
+                user == ctx.author
+                and str(reaction.emoji) in valid_emojis
+                and reaction.message.id == message.id
+)
 
-        while True:
 
-            if str(reaction.emoji) == "😁":
-                await message.add_reaction("😁")
-                await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "euw")
-            elif str(reaction.emoji) == "😄":
-                await message.add_reaction("😄")
-                await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "br")
+        reaction, _ = await ctx.bot.wait_for("reaction_add", check=check, timeout=60)
+
+        if str(reaction.emoji) == "😁":
+            await message.add_reaction("😁")
+            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "euw")
+        elif str(reaction.emoji) == "😄":
+            await message.add_reaction("😄")
+            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "br")
+
+
+        elif str(reaction.emoji) == "🚀":
+            await message.add_reaction("🚀")
+            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "na")
+            
+            
+        elif str(reaction.emoji) == "💻":
+            await message.add_reaction("💻")
+            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "lan")
+            
+        elif str(reaction.emoji) == "📚":
+            await message.add_reaction("📚")
+            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "oce")
+    
+        elif str(reaction.emoji) == "🎉":
+            await message.add_reaction("🎉")
+            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "kr")
+            
+        elif str(reaction.emoji) == "🌟":
+            await message.add_reaction("🌟")
+            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "jp")
 
     except Exception as e:
         await ctx.send(f"An error occurred: {e}")
