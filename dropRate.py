@@ -8,7 +8,7 @@ async def display_drop(ctx):
     try:
    
         with open(image_path, 'rb') as image_file:
-            file = discord.File(image_file, 'items.png')
+            file = discord.File(image_file, 'drop.png')
             await ctx.send(file=file)
     except FileNotFoundError:
         await ctx.send(" the image file was not found.")
