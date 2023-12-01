@@ -1,16 +1,18 @@
 import discord
 import requests
-import riotwatcher
+from riotwatcher import LolWatcher, ApiError
 
 from config import *
 from discord.ext import commands
-from summoner_info import get_summoner_info
+from summoner_info import get_summoner_info, get_match_info
 from riotwatcher import TftWatcher
 
 #summoner url for information
 summoner_url = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name"
 rank_url = "https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner"
 icon_url = "http://ddragon.leagueoflegends.com/cdn/11.18.1/img/profileicon/"
+matches_url = "https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/"
+specific_match_url = "https://americas.api.riotgames.com/tft/match/v1/matches/"
 
 
 # Create an instance of Intents
@@ -29,11 +31,14 @@ async def say_hi(ctx):
     await ctx.send('Hi')
     
     
- 
+
+    
 @bot.command(name='summoner', help='Get summoner information')
 async def summoner_command(ctx, name):
-    await get_summoner_info(ctx, name, summoner_url, rank_url, icon_url, RIOT_GAMES_API_KEY)
+    await get_summoner_info(ctx, name, summoner_url, rank_url, icon_url, matches_url, RIOT_GAMES_API_KEY)
 
-
+@bot.command(name='match', help='Get match information')
+async def match_command(ctx, name):
+    await get_match_info(ctx, name, specific_match_url, RIOT_GAMES_API_KEY)
 
 bot.run(BOT_TOKEN)
