@@ -103,16 +103,15 @@ async def get_tft_leaderboard(ctx, leaderboard_url, API_KEY, region):
         
     
     
+
 async def get_emoji(ctx):
-    
-        image_path =  'emoji.png'
+    image_path = 'emoji.png'
 
     try:
-   
         with open(image_path, 'rb') as image_file:
             file = discord.File(image_file, 'emoji.png')
             await ctx.send(file=file)
     except FileNotFoundError:
-        await ctx.send(" the image file was not found.")
+        await ctx.send("The image file was not found.")
     except Exception as e:
         await ctx.send(f"An error occurred: {e}")

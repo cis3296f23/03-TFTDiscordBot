@@ -66,9 +66,10 @@ async def drop_command(ctx):
 
 
 @bot.command(name='leaderboard' , help= 'Get the top ranking players information')
-async def emoji_command(ctx):
-    await get_emoji(ctx)
+
+   
 async def tft_leaderboard(ctx):
+    await get_emoji(ctx)
     await get_tft_leaderboard(ctx, leaderboard_url, RIOT_GAMES_API_KEY , "na")
 
 
