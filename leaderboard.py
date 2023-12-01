@@ -15,7 +15,7 @@ async def get_tft_leaderboard(ctx, leaderboard_url, API_KEY):
         def get_rank(rank):
             
             ranks= {{'I': 'Challenger', 'II': 'Grandmaster', 'III': 'Master'}}
-            return ranks(rank, rank)
+            return ranks.get(rank, rank)
 
         leaderboard_text = "Top 10 TFT Players:\n"
         for index, entry in enumerate(top_10_entries, start=1):
