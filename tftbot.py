@@ -8,6 +8,7 @@ from summoner_info import get_summoner_info
 from getitem import display_image
 from riotwatcher import TftWatcher
 from items import display_component
+from dropRate import display_drop
 
 #summoner url for information
 summoner_url = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name"
