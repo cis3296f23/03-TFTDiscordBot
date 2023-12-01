@@ -28,7 +28,7 @@ async def display_component(ctx, component_name: str):
                     await ctx.send(file=file)
             else:
                 await ctx.send(f"Sorry, no information available for {component_name}.")
-        except FileNotFoundError:
-            await ctx.send(f"Sorry, the image file for {component_name} was not found.")
+       # except FileNotFoundError:
+        #    await ctx.send(f"Sorry, the image file for {component_name} was not found.")
         except Exception as e:
             await ctx.send(f"An error occurred: {e}")
