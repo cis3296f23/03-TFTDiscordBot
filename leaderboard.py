@@ -32,16 +32,24 @@ async def get_tft_leaderboard(ctx, leaderboard_url, API_KEY, region):
       
         message = await ctx.send(f"{leaderboard_text}\n\u200B")
         
-        await message.add_reaction("😁")
+        # Region managing 
+        
+        # Europe
+        await message.add_reaction("😁") 
+        # Brazil 
+        await message.add_reaction("😄") 
 
         def check(reaction, user):
-            return user == ctx.author and str(reaction.emoji) == "😁" and reaction.message.id == message.id
+            return user == ctx.author and str(reaction.emoji) in ["😁", "😄"] and reaction.message.id == message.id
 
-        reaction, _ = await ctx.bot.wait_for("reaction_add", check=check, timeout=60)
+        while True:
 
-        if str(reaction.emoji) == "😁":
-            await message.add_reaction("😁")
-            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "euw")
+            if str(reaction.emoji) == "😁":
+                await message.add_reaction("😁")
+                await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "euw")
+            elif str(reaction.emoji) == "😄":
+                await message.add_reaction("😄")
+                await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "br")
 
     except Exception as e:
         await ctx.send(f"An error occurred: {e}")
