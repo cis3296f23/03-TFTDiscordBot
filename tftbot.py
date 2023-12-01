@@ -55,7 +55,6 @@ async def match_command(ctx, name):
 
 
 
-
 @bot.command(name='component', help='Get information on a specific component')
 async def component_commands(ctx, component_name: str):
     await display_component(ctx, component_name)
@@ -68,7 +67,7 @@ async def drop_command(ctx):
 
 @bot.command(name='leaderboard' , help= 'Get the top ranking players information')
 async def tft_leaderboard(ctx):
-    await get_tft_leaderboard(ctx, leaderboard_url, RIOT_GAMES_API_KEY)
+    await get_tft_leaderboard(ctx, leaderboard_url, RIOT_GAMES_API_KEY , "na")
 
 
 
