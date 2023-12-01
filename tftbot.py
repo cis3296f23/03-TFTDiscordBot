@@ -9,6 +9,7 @@ from getitem import display_image
 from riotwatcher import TftWatcher
 from items import display_component
 from dropRate import display_drop
+from leaderboard import get_tft_leaderboard
 
 #summoner url for information
 summoner_url = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name"
@@ -41,7 +42,6 @@ async def item_command(ctx):
 @bot.command(name='summoner', help='Get summoner information')
 async def summoner_command(ctx, name):
     await get_summoner_info(ctx, name, summoner_url, rank_url, icon_url, RIOT_GAMES_API_KEY)
-
 
 
 
