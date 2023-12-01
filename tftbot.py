@@ -15,6 +15,8 @@ from leaderboard import get_tft_leaderboard
 summoner_url = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name"
 rank_url = "https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner"
 icon_url = "http://ddragon.leagueoflegends.com/cdn/11.18.1/img/profileicon/"
+leaderboard_url = "https://na1.api.riotgames.com/tft/league/v1/challenger"
+
 
 
 # Create an instance of Intents
