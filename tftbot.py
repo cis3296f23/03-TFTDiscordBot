@@ -74,8 +74,8 @@ async def tft_leaderboard(ctx):
 
 
 @bot.command(name='rank', help= 'Get the TFT rank of the player with Winrate')
-async def rank_command(ctx):
-    await rank_info(ctx, name)
+async def rank_command(ctx, name):
+    await rank_info(ctx, name,summoner_url, rank_url, RIOT_GAMES_API_KEY)
 
 
 
