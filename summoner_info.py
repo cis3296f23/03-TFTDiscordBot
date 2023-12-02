@@ -36,12 +36,13 @@ async def get_summoner_info(ctx, name, summoner_url, rank_url, icon_url, matches
         else:
             tft_rank = "TFT Rank: Unranked"
 
-        await ctx.send(f"Summoner level: {summoner_level}\nSummoner PUUID: {puuid}\n{tft_rank}\nProfile Icon: {icon}\nMatch history: {matches}\nmatch_url={get_matches} ")
+        await ctx.send(f"Summoner level: {summoner_level}\nSummoner PUUID: {puuid}\n{tft_rank}\nMatch history: {matches}\nProfile Icon: {icon}\n ")
         
 
 
     except requests.exceptions.HTTPError as err:
         await ctx.send(f"Error fetching summoner information: {err}")
+
 
 async def get_match_info(ctx, name, specific_match_url, RIOT_GAMES_API_KEY):
     try:
@@ -49,8 +50,13 @@ async def get_match_info(ctx, name, specific_match_url, RIOT_GAMES_API_KEY):
         get_match = f"{specific_match_url}{match_id}/?api_key={RIOT_GAMES_API_KEY}"
         match_resp = requests.get(get_match)
         match = match_resp.json()
-        gameLength = match['info']['game_length']/60
-        await ctx.send(f"Game length: {gameLength}", " seconds" )
+        game_length_seconds = match['info']['game_length']
+        
+        # Time Caculate 
+        minutes = int(game_length_seconds // 60)
+        seconds = int(game_length_seconds % 60)
+
+        await ctx.send(f"Game length: {minutes} minutes and {seconds} seconds")
 
     except requests.exceptions.HTTPError as err:
-        await ctx.send(f"Error fetching summoner information: {err}")
+        await ctx.send(f"Error fetching match information: {err}")
