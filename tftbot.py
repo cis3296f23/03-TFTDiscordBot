@@ -60,7 +60,7 @@ async def component_commands(ctx, component_name: str):
     await display_component(ctx, component_name)
  
 
-@bot.command(name='dropRates', help='Get the dropRate of every tier in every level')
+@bot.command(name='droprates', help='Get the dropRate of every tier in every level')
 async def drop_command(ctx):
     await display_drop(ctx)
 
