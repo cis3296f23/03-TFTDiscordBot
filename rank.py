@@ -1,4 +1,7 @@
 import requests
+import discord
+
+
 
 async def rank_info(ctx, name, summoner_url, rank_url, RIOT_GAMES_API_KEY):
     try:
@@ -20,8 +23,15 @@ async def rank_info(ctx, name, summoner_url, rank_url, RIOT_GAMES_API_KEY):
         rank_info = rank_resp.json()
 
         if rank_info:
-            tft_rank = f"TFT Rank: {rank_info[0]['tier']} {rank_info[0]['rank']}"
-            
+            tier = rank_info[0]['tier']
+            rank = rank_info[0]['rank']
+            tft_rank = f"TFT Rank: {tier} {rank}"
+
+            # Display rank_image
+            image_filename = f"rank_image/{tier.lower()}.png"
+            with open(image_filename, 'rb') as f:
+                await ctx.send(file=discord.File(f, 'rank_image.png'))
+
             # WinRate 
             if 'wins' in rank_info[0] and 'losses' in rank_info[0]:
                 wins = rank_info[0]['wins']
