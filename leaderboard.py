@@ -24,7 +24,7 @@ async def get_tft_leaderboard(ctx, API_KEY, region):
             ranks = {'I': 'Challenger', 'II': 'Grandmaster', 'III': 'Master'}
             return ranks.get(rank, rank)
 
-        leaderboard_text = f"Top 10 TFT Players in {region}:\n"
+        leaderboard_text = f"Top Challenger TFT Players in {region}:\n"
         for index, entry in enumerate(top_10_entries, start=1):
             
             summoner_name = entry['summonerName']
@@ -88,11 +88,11 @@ async def get_tft_leaderboard(ctx, API_KEY, region):
             
         elif str(reaction.emoji) == "💻":
             await message.add_reaction("💻")
-            await get_tft_leaderboard(ctx, API_KEY, "lan")
+            await get_tft_leaderboard(ctx, API_KEY, "la1")
             
         elif str(reaction.emoji) == "📚":
             await message.add_reaction("📚")
-            await get_tft_leaderboard(ctx, API_KEY, "oce")
+            await get_tft_leaderboard(ctx, API_KEY, "oc1")
     
         elif str(reaction.emoji) == "🎉":
             await message.add_reaction("🎉")
