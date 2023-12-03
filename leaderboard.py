@@ -88,15 +88,15 @@ async def get_tft_leaderboard(ctx, API_KEY, region):
             
         elif str(reaction.emoji) == "💻":
             await message.add_reaction("💻")
-            await get_tft_leaderboard(ctx, API_KEY, "lan1")
+            await get_tft_leaderboard(ctx, API_KEY, "lan")
             
         elif str(reaction.emoji) == "📚":
             await message.add_reaction("📚")
-            await get_tft_leaderboard(ctx, API_KEY, "oce1")
+            await get_tft_leaderboard(ctx, API_KEY, "oce")
     
         elif str(reaction.emoji) == "🎉":
             await message.add_reaction("🎉")
-            await get_tft_leaderboard(ctx, API_KEY, "kR1")
+            await get_tft_leaderboard(ctx, API_KEY, "kr")
             
         elif str(reaction.emoji) == "🌟":
             await message.add_reaction("🌟")
