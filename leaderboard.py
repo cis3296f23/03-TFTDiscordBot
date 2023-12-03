@@ -3,10 +3,14 @@ import discord
 from discord.ext import commands
 
 
-async def get_tft_leaderboard(ctx, leaderboard_url, API_KEY, region):
+async def get_tft_leaderboard(ctx, API_KEY, region):
+    
+    base_url = f"https://{region}.api.riotgames.com/tft/league/v1/challenger"
+    leaderboard_api_url = f"{base_url}?api_key={API_KEY}&region={region}"
+
+
     try:
         # Fetch TFT leaderboard information 
-        leaderboard_api_url = f"{leaderboard_url}?api_key={API_KEY}&region={region}"
         leaderboard_resp = requests.get(leaderboard_api_url)
         leaderboard_resp.raise_for_status()
 
@@ -71,32 +75,32 @@ async def get_tft_leaderboard(ctx, leaderboard_url, API_KEY, region):
 
         if str(reaction.emoji) == "😁":
             await message.add_reaction("😁")
-            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "EUW")
+            await get_tft_leaderboard(ctx, API_KEY, "euw1")
         elif str(reaction.emoji) == "😄":
             await message.add_reaction("😄")
-            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "br")
+            await get_tft_leaderboard(ctx, API_KEY, "br1")
 
 
         elif str(reaction.emoji) == "🚀":
             await message.add_reaction("🚀")
-            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "na")
+            await get_tft_leaderboard(ctx, API_KEY, "na1")
             
             
         elif str(reaction.emoji) == "💻":
             await message.add_reaction("💻")
-            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "lan")
+            await get_tft_leaderboard(ctx, API_KEY, "lan1")
             
         elif str(reaction.emoji) == "📚":
             await message.add_reaction("📚")
-            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "oce")
+            await get_tft_leaderboard(ctx, API_KEY, "oce1")
     
         elif str(reaction.emoji) == "🎉":
             await message.add_reaction("🎉")
-            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "kr")
+            await get_tft_leaderboard(ctx, API_KEY, "kR1")
             
         elif str(reaction.emoji) == "🌟":
             await message.add_reaction("🌟")
-            await get_tft_leaderboard(ctx, leaderboard_url, API_KEY, "jp")
+            await get_tft_leaderboard(ctx, API_KEY, "jp1")
 
     except Exception as e:
         await ctx.send(f"An error occurred: {e}")

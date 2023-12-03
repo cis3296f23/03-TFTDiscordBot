@@ -16,7 +16,6 @@ from rank import rank_info
 summoner_url = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name"
 rank_url = "https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner"
 icon_url = "http://ddragon.leagueoflegends.com/cdn/11.18.1/img/profileicon/"
-leaderboard_url = "https://na1.api.riotgames.com/tft/league/v1/challenger"
 matches_url = "https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/"
 specific_match_url = "https://americas.api.riotgames.com/tft/match/v1/matches/"
 
@@ -69,7 +68,7 @@ async def drop_command(ctx):
 @bot.command(name='leaderboard' , help= 'Get the top ranking players information')
 async def tft_leaderboard(ctx):
     await get_emoji(ctx)
-    await get_tft_leaderboard(ctx, leaderboard_url, RIOT_GAMES_API_KEY , "na")
+    await get_tft_leaderboard(ctx, RIOT_GAMES_API_KEY , "na1")
 
 
 
