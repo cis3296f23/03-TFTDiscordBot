@@ -1,12 +1,9 @@
 import discord
-import requests
-import riotwatcher
 
 from config import *
 from discord.ext import commands
-from summoner_info import get_summoner_info,get_match_info,get_tft_leaderboard ,get_emoji
-from items import display_component,display_drop,display_image
-from rank import rank_info
+from summoner_info import *
+from items import *
 
 #summoner url for information
 summoner_url = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name"
@@ -14,8 +11,6 @@ rank_url = "https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner"
 icon_url = "http://ddragon.leagueoflegends.com/cdn/11.18.1/img/profileicon/"
 matches_url = "https://americas.api.riotgames.com/tft/match/v1/matches/by-puuid/"
 specific_match_url = "https://americas.api.riotgames.com/tft/match/v1/matches/"
-
-
 
 
 # Create an instance of Intents
@@ -33,13 +28,11 @@ async def on_ready():
 async def say_hi(ctx):
     await ctx.send('Hi')
     
-    
   
 @bot.command(name='items', help='Get information on the basic components')
 async def item_command(ctx):
     await display_image(ctx)
 
- 
     
 @bot.command(name='summoner', help='Get summoner information')
 async def summoner_command(ctx, name):
@@ -71,7 +64,6 @@ async def tft_leaderboard(ctx):
 @bot.command(name='rank', help= 'Get the TFT rank of the player with Winrate')
 async def rank_command(ctx, name):
     await rank_info(ctx, name,summoner_url, rank_url, RIOT_GAMES_API_KEY)
-
 
 
 bot.run(BOT_TOKEN)
