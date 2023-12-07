@@ -4,9 +4,8 @@ import riotwatcher
 
 from config import *
 from discord.ext import commands
-from summoner_info import get_summoner_info,get_match_info,get_tft_leaderboard ,get_emoji
+from summoner_info import get_summoner_info,get_match_info,get_tft_leaderboard ,get_emoji, rank_info
 from items import display_component,display_drop,display_image
-from rank import rank_info
 
 #summoner url for information
 summoner_url = "https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name"
