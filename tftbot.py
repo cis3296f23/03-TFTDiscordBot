@@ -4,12 +4,8 @@ import riotwatcher
 
 from config import *
 from discord.ext import commands
-from summoner_info import get_summoner_info,get_match_info
-from getitem import display_image
-from riotwatcher import TftWatcher
-from items import display_component
-from dropRate import display_drop
-from leaderboard import get_tft_leaderboard ,get_emoji
+from summoner_info import get_summoner_info,get_match_info,get_tft_leaderboard ,get_emoji
+from items import display_component,display_drop,display_image
 from rank import rank_info
 
 #summoner url for information
