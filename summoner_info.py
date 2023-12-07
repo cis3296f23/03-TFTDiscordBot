@@ -180,7 +180,6 @@ async def get_emoji(ctx):
     except Exception as e:
         await ctx.send(f"An error occurred: {e}")
 
-
 async def rank_info(ctx, name, summoner_url, rank_url, RIOT_GAMES_API_KEY):
     try:
         # Summoner information
