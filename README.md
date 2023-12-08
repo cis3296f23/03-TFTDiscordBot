@@ -1,6 +1,6 @@
 
 ![RG_REMIX-RUMBLE_GAMEPLAY-OVERVIEW-ARTICLE_BANNER-IMAGE_1920X1080](https://github.com/cis3296f23/03-TFTDiscordBot/assets/118203614/661ffa48-fdec-4e60-8bcc-6a8933d93fff)
-### Project Abstract-
+### Project Abstract
 This proposed project involves the development of a discord bot for the game Teamfight Tactics
 (TFT) by Riot Games. TFT is a popular online multiplayer strategy game with in-game purchases,
 a ranking system, and frequent updates. The Discord bot will enable users to retrieve information
@@ -83,10 +83,19 @@ mechanics, synergies, and optimal strategies. Thus, the bot’s ability to simpl
 concepts allows Jack to have a more enhanced gaming experience and was able to interact
 with his friend on a shared passion.
 
-
+### UML Diagrams
+![SprintWeek4ClassDiagram drawio](https://github.com/cis3296f23/03-TFTDiscordBot/assets/118203614/812027df-e897-4d63-b2de-05ee6f93f12a)
+  
+  ![Untitled](https://github.com/cis3296f23/03-TFTDiscordBot/assets/118203614/e350a116-b663-4762-a98a-636a8e5d5fcb)
+  
+The user presented within this diagram can use several commands on discord bot. Then, the bot respond to the commands by making requests to the Riot server
+to retrieve the data which the user is desired to know. Lastly, the bot returns the data to the user.
 ### Required Resources
 
   This project uses Python only. Knowledge about API is necessary to generate API key and retrieve the information from Riot server.
-  Visual Studio is recommended for this project.
+  Visual Studio is recommended for this project.  
+  https://github.com/cis3296f23/03-TFTDiscordBot
   
-  UML Diagram:
+
+
+
