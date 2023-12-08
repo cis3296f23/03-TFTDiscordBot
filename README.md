@@ -87,7 +87,8 @@ with his friend on a shared passion.
 ![SprintWeek4ClassDiagram drawio](https://github.com/cis3296f23/03-TFTDiscordBot/assets/118203614/812027df-e897-4d63-b2de-05ee6f93f12a)
   
   ![Untitled](https://github.com/cis3296f23/03-TFTDiscordBot/assets/118203614/e350a116-b663-4762-a98a-636a8e5d5fcb)
-  
+  ![TFT_Discord_Bot_Sequence_Diagram_2_-_Retrieving_Summoner_Info](https://github.com/cis3296f23/03-TFTDiscordBot/assets/118203614/86da70c7-626f-4dcc-a6df-281dfed329b6)
+
 The user presented within this diagram can use several commands on discord bot. Then, the bot respond to the commands by making requests to the Riot server
 to retrieve the data which the user is desired to know. Lastly, the bot returns the data to the user.
 ### Required Resources
