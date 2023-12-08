@@ -58,7 +58,6 @@ async def display_drop(ctx):
         await ctx.send(f"An error occurred: {e}")
         
         
-        
 async def display_image(ctx):
     """Output image file to the text chat
 

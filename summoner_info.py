@@ -147,10 +147,6 @@ async def get_tft_leaderboard(ctx, API_KEY, region):
         await message.add_reaction("🌟")   
         
 
-        
-        
-        
-
         def check(reaction, user):
             """Checks when an emoji on the leaderboard output message is clicked on
 
@@ -167,7 +163,6 @@ async def get_tft_leaderboard(ctx, API_KEY, region):
                 and str(reaction.emoji) in valid_emojis
                 and reaction.message.id == message.id
 )
-
 
         reaction, _ = await ctx.bot.wait_for("reaction_add", check=check, timeout=60)
 
@@ -220,6 +215,7 @@ async def get_emoji(ctx):
         await ctx.send("The image file was not found.")
     except Exception as e:
         await ctx.send(f"An error occurred: {e}")
+        
 
 async def rank_info(ctx, name, summoner_url, rank_url, RIOT_GAMES_API_KEY):
     """Retrieves rank information for a given summoner
